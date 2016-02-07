@@ -2,7 +2,6 @@
   <% if (post.link || post.title){ %>
     <header class="article__header">
       <%- partial('post/title', {class_name: 'article-title'}) %>
-      <%- partial('post/date', {class_name: 'article-date', date_format: null}) %>
     </header>
   <% } %>
   <div class="article__body">
