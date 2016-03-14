@@ -1,10 +1,26 @@
 @import url(https://fonts.googleapis.com/css?family=Bitter:400,700,400italic);
 
+media_queries = {
+  mobile  : "only screen and (max-width: 600px)",
+  tablet  : "only screen and (min-width: 601px) and (max-width: 800px)",
+  desktop : "only screen and (min-width: 801px)"
+}
+
+for_breakpoint(breakpoints)
+  conditions = ()
+  for breakpoint in breakpoints
+    push(conditions, media_queries[breakpoint])
+  conditions = join(", ", conditions)
+  @media conditions
+    {block}
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  padding: 0;
   background-color: #f6f6f6;
   color: #292929;
   font-family: Bitter, serif;
@@ -22,16 +38,21 @@ p {
 }
 
 .site-header {
-  padding: 400px 0 10px;
+  padding: 420px 10px 20px;
   background-image: url(/images/lapinrose.png);
   background-repeat: no-repeat;
   background-size: 400px 400px;
-  background-position: center top;
-  border-bottom: 2px solid #f2e0ec;
+  background-position: center 10px;
   text-align: center;
 
   h1 {
     margin: 0;
+    line-height: 1.4;
+  }
+
+  +for_breakpoint(mobile) {
+    padding-top: 220px;
+    background-size: 200px 200px;
   }
 }
 
@@ -39,4 +60,5 @@ p {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+  border-top: 4px solid #f2e0ec;
 }
