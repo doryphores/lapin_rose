@@ -25,12 +25,21 @@ body {
   color: #292929;
   font-family: Bitter, serif;
   line-height: 1.8;
+
+  +for_breakpoint(mobile) {
+    line-height: 1.5;
+  }
 }
 
 p {
   font-size: 20px;
   margin: 1.5em 0;
   text-align: justify;
+
+  +for_breakpoint(mobile) {
+    font-size: 18px;
+    text-align: left;
+  }
 
   &.centered {
     text-align: center;
